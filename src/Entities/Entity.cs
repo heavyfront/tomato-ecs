@@ -1,4 +1,5 @@
 using System;
+using _Project.Scripts.Ecs.Infrastructure;
 using npg.tomatoecs.Components;
 
 namespace npg.tomatoecs.Entities
@@ -114,5 +115,23 @@ namespace npg.tomatoecs.Entities
 		{
 			return HashCode.Combine(Context, Id);
 		}
+		
+		internal void SetComponent<TComponent>(TComponent component) where TComponent : struct, ITomatoComponent
+		{
+			ref var comp = ref GetComponent<TComponent>();
+			comp = component;
+		}
+		
+		internal TComponent GetComponentForEditor<TComponent>() where TComponent : struct, ITomatoComponent
+		{
+			return GetComponent<TComponent>();
+		}
+		
+		internal void AddComponentFromEditor<TComponent>()
+			where TComponent : struct, ITomatoComponent
+		{
+			AddComponent<TComponent>();
+		}
+
 	}
 }
