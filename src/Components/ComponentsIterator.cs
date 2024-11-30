@@ -1,5 +1,5 @@
 using System;
-using npg.tomatoecs.Entities;
+using npg.tomatoecs.Editor;
 
 namespace npg.tomatoecs.Components
 {
@@ -8,7 +8,7 @@ namespace npg.tomatoecs.Components
 		private readonly Components<TComponent> _components;
 		private readonly DelayedOperations<TComponent> _delayedOperations;
 		private readonly EntityLinker _entityLinker;
-		private readonly Entities.Entities _entities;
+		private readonly Editor.Entities _entities;
 		private int _lock;
 
 		internal bool IsLocked => _lock > 0;
@@ -16,7 +16,7 @@ namespace npg.tomatoecs.Components
 		internal ComponentsIterator(Components<TComponent> components,
 			DelayedOperations<TComponent> delayedOperations,
 			EntityLinker entityLinker,
-			Entities.Entities entities)
+			Editor.Entities entities)
 		{
 			_components = components;
 			_delayedOperations = delayedOperations;
@@ -149,9 +149,9 @@ namespace npg.tomatoecs.Components
 		public readonly struct EntityEnumerator
 		{
 			private readonly Components<TComponent> _components;
-			private readonly Entities.Entities _entities;
+			private readonly Editor.Entities _entities;
 
-			internal EntityEnumerator(Components<TComponent> components, Entities.Entities entities)
+			internal EntityEnumerator(Components<TComponent> components, Editor.Entities entities)
 			{
 				_components = components;
 				_entities = entities;
@@ -165,11 +165,11 @@ namespace npg.tomatoecs.Components
 			public struct Enumerator : IDisposable
 			{
 				private readonly Components<TComponent> _components;
-				private readonly Entities.Entities _entities;
+				private readonly Editor.Entities _entities;
 				private readonly int _count;
 				private int _index;
 
-				internal Enumerator(Components<TComponent> components, Entities.Entities entities)
+				internal Enumerator(Components<TComponent> components, Editor.Entities entities)
 				{
 					_components = components;
 					_components.Lock();
@@ -195,11 +195,11 @@ namespace npg.tomatoecs.Components
 		public readonly struct LinkedEntityEnumerator
 		{
 			private readonly Components<TComponent> _components;
-			private readonly Entities.Entities _entities;
+			private readonly Editor.Entities _entities;
 			private readonly EntityLinks _links;
 
 			internal LinkedEntityEnumerator(Components<TComponent> components,
-				Entities.Entities entities,
+				Editor.Entities entities,
 				EntityLinks links)
 			{
 				_components = components;
@@ -215,13 +215,13 @@ namespace npg.tomatoecs.Components
 			public struct Enumerator : IDisposable
 			{
 				private readonly Components<TComponent> _components;
-				private readonly Entities.Entities _entities;
+				private readonly Editor.Entities _entities;
 				private readonly EntityLinks _links;
 				private readonly int _componentCount;
 				private int _index;
 
 				internal Enumerator(Components<TComponent> components,
-					Entities.Entities entities,
+					Editor.Entities entities,
 					EntityLinks links,
 					int componentCount)
 				{

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using npg.tomatoecs.Components;
-using npg.tomatoecs.Entities;
+using npg.tomatoecs.Editor;
 using npg.tomatoecs.Groups;
 
 namespace npg.tomatoecs
@@ -10,7 +10,7 @@ namespace npg.tomatoecs
 	{
 		private const int DefaultCapacity = 32;
 
-		private readonly Entities.Entities _entities;
+		private readonly Editor.Entities _entities;
 		private readonly List<InternalComponents> _components;
 		private readonly Dictionary<Type, InternalComponents> _componentsMap;
 		private readonly List<InternalReactiveComponents> _reactiveComponents;
@@ -20,7 +20,7 @@ namespace npg.tomatoecs
 
 		public Context(int entityCapacity = DefaultCapacity, int componentCapacity = DefaultCapacity)
 		{
-			_entities = new Entities.Entities(entityCapacity);
+			_entities = new Editor.Entities(entityCapacity);
 
 			_components = new List<InternalComponents>(componentCapacity);
 			_componentsMap = new Dictionary<Type, InternalComponents>(componentCapacity);

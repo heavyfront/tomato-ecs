@@ -1,8 +1,8 @@
 using System;
-using _Project.Scripts.Ecs.Infrastructure;
+using npg.tomatoecs;
 using npg.tomatoecs.Components;
 
-namespace npg.tomatoecs.Entities
+namespace npg.tomatoecs.Editor
 {
 	public struct Entity : IEquatable<Entity>
 	{

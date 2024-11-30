@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using npg.tomatoecs.Entities;
+using npg.tomatoecs.Editor;
 
 namespace npg.tomatoecs.Components
 {
@@ -21,7 +21,7 @@ namespace npg.tomatoecs.Components
 
 		public int Count => _componentCount - _delayedOperations.AddedCount;
 
-		internal Components(Entities.Entities entities, EntityLinker entityLinker, int id, int capacity)
+		internal Components(Editor.Entities entities, EntityLinker entityLinker, int id, int capacity)
 		{
 			Id = id;
 			_delayedOperations = new DelayedOperations<TComponent>(this);

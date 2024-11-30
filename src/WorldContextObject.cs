@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using npg.tomatoecs;
 using UnityEngine;
 
-namespace _Project.Scripts.Ecs.Infrastructure
+namespace npg.tomatoecs
 {
     public class WorldContextObject : MonoBehaviour
     {

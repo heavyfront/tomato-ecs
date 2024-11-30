@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using npg.tomatoecs.Entities;
+using npg.tomatoecs.Editor;
 
 namespace npg.tomatoecs.Groups
 {
@@ -10,13 +10,13 @@ namespace npg.tomatoecs.Groups
 		private const int DefaultGroupCapacity = 32;
 
 		private readonly Matcher _matcher;
-		private readonly Entities.Entities _entities;
+		private readonly Editor.Entities _entities;
 		private readonly EntityLinker _entityLinker;
 		private readonly HashSet<uint> _entityIds;
 
 		public int Count => _entityIds.Count;
 
-		internal Group(Matcher matcher, Entities.Entities entities, EntityLinker entityLinker)
+		internal Group(Matcher matcher, Editor.Entities entities, EntityLinker entityLinker)
 		{
 			_entityIds = new HashSet<uint>(DefaultGroupCapacity);
 
@@ -87,11 +87,11 @@ namespace npg.tomatoecs.Groups
 
 		public struct Enumerator : IDisposable
 		{
-			private readonly Entities.Entities _entities;
+			private readonly Editor.Entities _entities;
 			private readonly Matcher _matcher;
 			private HashSet<uint>.Enumerator _enumerator;
 
-			internal Enumerator(HashSet<uint> entityIds, Entities.Entities entities, Matcher matcher)
+			internal Enumerator(HashSet<uint> entityIds, Editor.Entities entities, Matcher matcher)
 			{
 				_entities = entities;
 				_matcher = matcher;
@@ -117,10 +117,10 @@ namespace npg.tomatoecs.Groups
 		{
 			private readonly HashSet<uint> _entityIds;
 			private readonly EntityLinks _links;
-			private readonly Entities.Entities _entities;
+			private readonly Editor.Entities _entities;
 			private readonly Matcher _matcher;
 
-			internal LinkedEntityEnumerator(HashSet<uint> entityIds, EntityLinks links, Entities.Entities entities, Matcher matcher)
+			internal LinkedEntityEnumerator(HashSet<uint> entityIds, EntityLinks links, Editor.Entities entities, Matcher matcher)
 			{
 				_entityIds = entityIds;
 				_links = links;
@@ -136,11 +136,11 @@ namespace npg.tomatoecs.Groups
 			public struct Enumerator : IDisposable
 			{
 				private readonly EntityLinks _links;
-				private readonly Entities.Entities _entities;
+				private readonly Editor.Entities _entities;
 				private readonly Matcher _matcher;
 				private HashSet<uint>.Enumerator _enumerator;
 
-				internal Enumerator(HashSet<uint> entityIds, EntityLinks links, Entities.Entities entities, Matcher matcher)
+				internal Enumerator(HashSet<uint> entityIds, EntityLinks links, Editor.Entities entities, Matcher matcher)
 				{
 					_matcher = matcher;
 					_matcher.Lock();

@@ -1,5 +1,5 @@
 using System;
-using npg.tomatoecs.Entities;
+using npg.tomatoecs.Editor;
 
 namespace npg.tomatoecs.Components
 {
@@ -8,7 +8,7 @@ namespace npg.tomatoecs.Components
 	{
 		private readonly ComponentComparer<TComponent> _componentComparer = new();
 		private readonly Components<TComponent> _actualComponents;
-		private readonly Entities.Entities _entities;
+		private readonly Editor.Entities _entities;
 
 		private TComponent[] _previousComponents;
 		private uint[] _componentToEntityId;
@@ -17,7 +17,7 @@ namespace npg.tomatoecs.Components
 
 		internal Components<TComponent> ActualComponents => _actualComponents;
 
-		internal ReactiveComponents(Components<TComponent> actualComponents, Entities.Entities entities)
+		internal ReactiveComponents(Components<TComponent> actualComponents, Editor.Entities entities)
 		{
 			_actualComponents = actualComponents;
 			_entities = entities;
@@ -97,9 +97,9 @@ namespace npg.tomatoecs.Components
 		public readonly struct ChangedEnumerator
 		{
 			private readonly ReactiveComponents<TComponent> _reactiveComponents;
-			private readonly Entities.Entities _entities;
+			private readonly Editor.Entities _entities;
 
-			internal ChangedEnumerator(ReactiveComponents<TComponent> reactiveComponents, Entities.Entities entities)
+			internal ChangedEnumerator(ReactiveComponents<TComponent> reactiveComponents, Editor.Entities entities)
 			{
 				_reactiveComponents = reactiveComponents;
 				_entities = entities;
@@ -113,11 +113,11 @@ namespace npg.tomatoecs.Components
 			public struct Enumerator : IDisposable
 			{
 				private readonly ReactiveComponents<TComponent> _reactiveComponents;
-				private readonly Entities.Entities _entities;
+				private readonly Editor.Entities _entities;
 				private readonly int _componentCount;
 				private int _index;
 
-				internal Enumerator(ReactiveComponents<TComponent> reactiveComponents, Entities.Entities entities)
+				internal Enumerator(ReactiveComponents<TComponent> reactiveComponents, Editor.Entities entities)
 				{
 					_reactiveComponents = reactiveComponents;
 					_entities = entities;

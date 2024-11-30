@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using npg.tomatoecs.Entities;
+using npg.tomatoecs.Editor;
 
 namespace npg.tomatoecs.Groups
 {
@@ -8,14 +8,14 @@ namespace npg.tomatoecs.Groups
 	{
 		private const int DefaultCapacity = 4;
 
-		private readonly Entities.Entities _entities;
+		private readonly Editor.Entities _entities;
 		private readonly Context _context;
 		private readonly EntityLinker _entityLinker;
 		private readonly Stack<GroupBuilder> _groupBuilders;
 		private readonly Stack<Matcher> _freeMatchers;
 		private readonly Dictionary<Matcher, Group> _groups;
 
-		internal GroupProvider(Entities.Entities entities, Context context, EntityLinker entityLinker)
+		internal GroupProvider(Editor.Entities entities, Context context, EntityLinker entityLinker)
 		{
 			_entities = entities;
 			_context = context;

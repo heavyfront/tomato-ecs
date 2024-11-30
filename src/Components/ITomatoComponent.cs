@@ -1,4 +1,4 @@
-﻿namespace _Project.Scripts.Ecs.Infrastructure
+﻿namespace npg.tomatoecs
 {
     public interface ITomatoComponent{}
 }

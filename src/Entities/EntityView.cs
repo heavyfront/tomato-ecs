@@ -1,12 +1,10 @@
-﻿using System;
-using Sirenix.OdinInspector;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace _Project.Scripts.Infrastructure.Views
+namespace npg.tomatoecs.Editor
 {
     public abstract class EntityView : MonoBehaviour
     {
-        [SerializeField, ReadOnly] private uint _entityId;
+        [SerializeField] private uint _entityId;
 
         private Transform _transform;
         public uint EntityId => _entityId;

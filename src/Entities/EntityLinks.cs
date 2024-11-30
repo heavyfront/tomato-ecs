@@ -1,6 +1,6 @@
 using System;
 
-namespace npg.tomatoecs.Entities
+namespace npg.tomatoecs.Editor
 {
 	public class EntityLinks
 	{
