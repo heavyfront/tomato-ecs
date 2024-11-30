@@ -17,7 +17,9 @@
     "email": "nat.puncher@gmail.com",
     "url": "https://github.com/natpuncher"
   },
-  "dependencies": {},
+  "dependencies": {
+    "com.unity.netcode.gameobjects" : "2.1.1"
+  },
   "keywords": [
     "ecs",
     "tomato-ecs"

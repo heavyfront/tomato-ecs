@@ -1,8 +1,17 @@
 ﻿using UnityEngine;
 
+#if USING_NFGO
+    using Unity.Netcode;
+#endif
+
 namespace npg.tomatoecs.Editor
 {
-    public abstract class EntityView : MonoBehaviour
+    public abstract class EntityView
+#if USING_NFGO
+        : NetworkBehaviour
+#else
+        : MonoBehaviour
+#endif
     {
         [SerializeField] private uint _entityId;
 
@@ -19,6 +28,5 @@ namespace npg.tomatoecs.Editor
         }
 
         public abstract void Dispose();
-        
     }
 }
